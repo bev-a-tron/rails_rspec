@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128232359) do
+ActiveRecord::Schema.define(version: 20160128233159) do
+
+  create_table "tweets", force: :cascade do |t|
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "zombies", force: :cascade do |t|
     t.string   "name"
