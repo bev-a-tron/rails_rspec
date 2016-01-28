@@ -1,4 +1,4 @@
-== README
+##README
 
 Install gems, then generate rspec file and helper files:
 
