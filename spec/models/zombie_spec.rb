@@ -19,4 +19,19 @@ RSpec.describe Zombie, type: :model do
     expect(zombie.tweets).to include(tweet2)
   end
 
+  it 'changes the number of zombies' do
+    zombie = Zombie.new(name: 'Ash')
+    expect { zombie.save }.to change { Zombie.count }.by(1)
+  end
+
+  it 'changes the number of zombies from zero to 1' do
+    zombie = Zombie.new(name: 'Ash')
+    expect { zombie.save }.to change { Zombie.count }.from(0).to(1)
+  end
+
+  it 'raises an error if saved without a name' do
+    zombie = Zombie.new
+    expect { zombie.save! }.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
 end
